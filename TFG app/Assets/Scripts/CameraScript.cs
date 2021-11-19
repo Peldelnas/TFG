@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,7 @@ public class CameraScript : MonoBehaviour
             currentCamIndex %= WebCamTexture.devices.Length;
             
 
-            if (tex != null)
+            if (tex != null) //por si hay alguna cámara activa
             {
                 
                 StopWebcam();
@@ -52,7 +53,7 @@ public class CameraScript : MonoBehaviour
             startStopText.text = "Apagar cámara";
         }
         } 
-        catch(IndexOutOfRangeException)
+        catch(IndexOutOfRangeException) //Por si no detecta cámaras
         {            
             ErrorPanel.SetActive(true);
             Text ErrorText = ErrorPanel.GetComponentsInChildren<Text>()[0];           
@@ -61,10 +62,19 @@ public class CameraScript : MonoBehaviour
         }        
     }
 
-    private void StopWebcam()
+    private void StopWebcam() 
     {
         display.texture = null;
         tex.Stop();
         tex = null;
+    }
+
+    public void TakePhoto_Clicked()
+    {
+        Texture2D texture = new Texture2D(display.texture.width, display.texture.height, TextureFormat.ARGB32, false);
+        texture.SetPixels(tex.GetPixels());
+        texture.Apply();
+        byte[] bytes = texture.EncodeToPNG();        
+        File.WriteAllBytes(Application.dataPath + "/images/testimg.png", bytes);
     }
 }
