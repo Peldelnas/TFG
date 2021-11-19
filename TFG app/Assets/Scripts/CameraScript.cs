@@ -15,11 +15,12 @@ public class CameraScript : MonoBehaviour
 
     public RawImage display;
     public GameObject ErrorPanel;
+    public GameObject PhotoButton;
 
     public Text startStopText;
 
     public void SwapCam_Clicked() {
-        ErrorPanel.SetActive(false);
+        ErrorPanel.SetActive(false);        
         if (WebCamTexture.devices.Length > 0)
         {
             currentCamIndex += 1;
@@ -50,7 +51,9 @@ public class CameraScript : MonoBehaviour
             display.texture = tex;
             
             tex.Play();
+            PhotoButton.SetActive(true);
             startStopText.text = "Apagar cámara";
+
         }
         } 
         catch(IndexOutOfRangeException) //Por si no detecta cámaras
@@ -67,6 +70,7 @@ public class CameraScript : MonoBehaviour
         display.texture = null;
         tex.Stop();
         tex = null;
+        PhotoButton.SetActive(false);
     }
 
     public void TakePhoto_Clicked()
@@ -76,5 +80,6 @@ public class CameraScript : MonoBehaviour
         texture.Apply();
         byte[] bytes = texture.EncodeToPNG();        
         File.WriteAllBytes(Application.dataPath + "/images/testimg.png", bytes);
+        StopWebcam();
     }
 }

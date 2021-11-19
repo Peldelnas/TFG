@@ -1196,6 +1196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 2114645466}
   ErrorPanel: {fileID: 810804952}
+  PhotoButton: {fileID: 1962758888}
   startStopText: {fileID: 1105828681}
 --- !u!4 &1900425059
 Transform:
@@ -1229,7 +1230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1962758889
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1296,7 +1297,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1900425058}
         m_TargetAssemblyTypeName: CameraScript, Assembly-CSharp
-        m_MethodName: StartStopCam_Clicked
+        m_MethodName: TakePhoto_Clicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
