@@ -66,12 +66,12 @@ public class RestClientExample : MonoBehaviour
         
         if(string.IsNullOrEmpty(response.Error) && !string.IsNullOrEmpty(response.Data))
         {
-            AzureOCRResponse azureOCRResponse = JsonUtility.FromJson<AzureOCRResponse>(response.Data);
+            AzureFacesResponse azureFacesResponse = JsonUtility.FromJson<AzureFacesResponse>(response.Data);
 
-            header.text = $"Orientation: {azureOCRResponse.orientation} Language: {azureOCRResponse.language} Text Angle: {azureOCRResponse.textAngle}";
+           /* header.text = $"Orientation: {azureFacesResponse.orientation} Language: {azureFacesResponse.language} Text Angle: {azureFacesResponse.textAngle}";
 
             string words = string.Empty;
-            foreach (var region in azureOCRResponse.regions)
+            foreach (var region in azureFacesResponse.regions)
             {
                 foreach (var line in region.lines)
                 {
@@ -81,8 +81,8 @@ public class RestClientExample : MonoBehaviour
                     }
                 }
             } 
-            wordsCapture.text = words;
-        }
+            wordsCapture.text = words; */
+        } 
     }
 
     public class ImageUrl 
