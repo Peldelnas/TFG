@@ -7,7 +7,7 @@ public class AzureFacesResponse
 
     //public decimal textAngle;
 
-    public string recognitionModel;
+    //public string recognitionModel;
 
     public AzureFacesRectangle[] faceRectangle;
 }
@@ -15,57 +15,20 @@ public class AzureFacesResponse
 [Serializable]
 public class AzureFacesRectangle
 {
-	public int width;
-	public int height;
-	public int left;
-	public int top;// public AzureOCRLine[] lines;
+    public int width;
+    public int height;
+    public int left;
+    public int top;
 }
 /*
-[Serializable]
- public class AzureOCRLine
-{
-    public string boundingBox;
-
-    public AzureOCRWord[] words;
-}
-
-
-[Serializable]
-public class AzureOCRWord
-{
-    public string boundingBox;
-
-    public string text;
-}
-
-/* 
-{
-	"language": "en",
-	"textAngle": 0.0,
-	"orientation": "Up",
-	"regions": [
-		{
-			"boundingBox": "142,55,214,28",
-			"lines": [
-				{
-					"boundingBox": "142,55,214,28",
-					"words": [
-						{
-							"boundingBox": "142,55,22,28",
-							"text": "0"
-						},
-						{
-							"boundingBox": "170,58,20,25",
-							"text": "01"
-						},
-						{
-							"boundingBox": "194,55,162,27",
-							"text": "STICKMAN"
-						}
-					]
-				}
-			]
-		}
-    ]
-}
-*/
+ [
+  {
+    "faceId": "1a14f740-2974-45e5-ab08-66687fa46ad9",
+    "faceRectangle": {
+      "top": 171,
+      "left": 222,
+      "width": 192,
+      "height": 192
+    }
+  }
+] */
