@@ -94,6 +94,45 @@ namespace RestClient.Core
                 }
             }
         }
+        public IEnumerator HttpPostStream(string url, byte[] body, System.Action<Response> callback, IEnumerable<RequestHeader> headers = null)
+        {
+            //using (UnityWebRequest webRequest = UnityWebRequest.Post(url, body))
+            using (UnityWebRequest webRequest = UnityWebRequest.Post(url, ""))
+            {
+                if (headers != null)
+                {
+                    foreach (RequestHeader header in headers)
+                    {
+                        webRequest.SetRequestHeader(header.Key, header.Value);
+                    }
+                }
+                //hemos cambiado el tipo de content -> lo hemos visto en los docs y también hemos cambiado el parametro de body
+                webRequest.uploadHandler.contentType = "application/octet-stream";
+                webRequest.uploadHandler = new UploadHandlerRaw(body);
+
+                yield return webRequest.SendWebRequest();
+
+                if (webRequest.isNetworkError)
+                {
+                    callback(new Response
+                    {
+                        StatusCode = webRequest.responseCode,
+                        Error = webRequest.error
+                    });
+                }
+
+                if (webRequest.isDone)
+                {
+                    string data = System.Text.Encoding.UTF8.GetString(webRequest.downloadHandler.data);
+                    callback(new Response
+                    {
+                        StatusCode = webRequest.responseCode,
+                        Error = webRequest.error,
+                        Data = data
+                    });
+                }
+            }
+        }
 
         public IEnumerator HttpPut(string url, string body, System.Action<Response> callback, IEnumerable<RequestHeader> headers = null)
         {

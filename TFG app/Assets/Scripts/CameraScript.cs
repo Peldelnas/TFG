@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 public class CameraScript : MonoBehaviour
@@ -16,9 +17,13 @@ public class CameraScript : MonoBehaviour
     public RawImage display;
     public GameObject ErrorPanel;
     public GameObject PhotoButton;
-
+    public GameObject ConfirmationButtons;
     public Text startStopText;
+    public APIController apiController;
 
+    private byte[] bytes;
+
+    // cambiar cámara botón
     public void SwapCam_Clicked() {
         ErrorPanel.SetActive(false);        
         if (WebCamTexture.devices.Length > 0)
@@ -35,14 +40,13 @@ public class CameraScript : MonoBehaviour
             }
         }
     }
-
+    //encender apagar cámara botón
     public void StartStopCam_Clicked() {
     try
         {
         if (tex != null) // Apagar cámara
         {
             StopWebcam();
-            startStopText.text = "Encender cámara";
         }
         else // encender cámara
         {
@@ -71,15 +75,37 @@ public class CameraScript : MonoBehaviour
         tex.Stop();
         tex = null;
         PhotoButton.SetActive(false);
+        startStopText.text = "Encender cámara";
     }
-
+    //tomar foto botón
     public void TakePhoto_Clicked()
     {
+        bytes = null;
         Texture2D texture = new Texture2D(display.texture.width, display.texture.height, TextureFormat.ARGB32, false);
         texture.SetPixels(tex.GetPixels());
         texture.Apply();
-        byte[] bytes = texture.EncodeToPNG();        
+        bytes = texture.EncodeToPNG();        
         File.WriteAllBytes(Application.dataPath + "/images/testimg.png", bytes);
         StopWebcam();
+        //congelar la imagen y botones de confirmación
+        ConfirmationButtons.SetActive(true);        
+        display.texture = texture;
+    }
+    
+    //click en aceptar foto
+    public void AcceptButton_Clicked()
+    {
+        apiController.SendPhoto(bytes);
+        //mostrar loading
+        bytes = null;
+        ConfirmationButtons.SetActive(false);
+
+    }
+    //click en cancelar foto
+    public void CancelButton_Clicked()
+    {
+        display.texture = null;
+        bytes = null;
+        ConfirmationButtons.SetActive(false);
     }
 }
