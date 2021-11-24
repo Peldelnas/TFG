@@ -1225,12 +1225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3561c01ded474249ba91baee96d76a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseUrl: https://westeurope.api.cognitive.microsoft.com/face/v1.0/detect
+  baseUrl: https://westeurope.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=smile,emotion
   clientId: Ocp-Apim-Subscription-Key
   clientSecret: 79b31dad40994dd79fe8ca8a77925021
-  imageToOCR: https://image.freepik.com/foto-gratis/vista-frontal-adorable-nino-sonriendo_23-2148244888.jpg
-  header: {fileID: 0}
-  wordsCapture: {fileID: 0}
+  imageToFaces: https://thumbs.dreamstime.com/z/sad-child-face-portrait-crying-36683161.jpg
 --- !u!1 &1962758888
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ using UnityEngine;
 public class RestClientExample : MonoBehaviour
 {
     [SerializeField]
-    private string baseUrl = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr?language=unk&detectOrientation=true";
+    private string baseUrl = "https://westeurope.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=smile,emotion";
 
     [SerializeField]
     private string clientId;
@@ -18,13 +18,9 @@ public class RestClientExample : MonoBehaviour
     private string clientSecret;
 
     [SerializeField]
-    private string imageToOCR = "";
+    private string imageToFaces = "";
 
-    [SerializeField]
-    private TextMeshProUGUI header;
 
-    [SerializeField]
-    private TextMeshProUGUI wordsCapture;
     
     void Start()
     {
@@ -41,16 +37,17 @@ public class RestClientExample : MonoBehaviour
         };
         
         // validation
-        if(string.IsNullOrEmpty(imageToOCR))
+        if(string.IsNullOrEmpty(imageToFaces))
         {
             Debug.LogError("imageToOCR needs to be set through the inspector...");
             return;
         }
 
         // build image url required by Azure Vision OCR
-        ImageUrl imageUrl = new ImageUrl { Url = imageToOCR };
+        ImageUrl imageUrl = new ImageUrl { Url = imageToFaces };
         
         // send a post request
+        
         StartCoroutine(RestWebClient.Instance.HttpPost(baseUrl, JsonUtility.ToJson(imageUrl), (r) => OnRequestComplete(r), new List<RequestHeader> 
         {
             clientSecurityHeader,
@@ -66,22 +63,29 @@ public class RestClientExample : MonoBehaviour
         
         if(string.IsNullOrEmpty(response.Error) && !string.IsNullOrEmpty(response.Data))
         {
-            AzureFacesResponse azureFacesResponse = JsonUtility.FromJson<AzureFacesResponse>(response.Data);
+            //pequeño fix para que no se queje del array
+            string data = "{\"result\":" + response.Data.ToString() + "}";
+            AzureFacesResponse azureFacesResponse = JsonUtility.FromJson<AzureFacesResponse>(data);           
 
-           /* header.text = $"Orientation: {azureFacesResponse.orientation} Language: {azureFacesResponse.language} Text Angle: {azureFacesResponse.textAngle}";
 
-            string words = string.Empty;
-            foreach (var region in azureFacesResponse.regions)
-            {
-                foreach (var line in region.lines)
-                {
-                    foreach (var word in line.words)
-                    { 
-                        words += word.text + "\n";
-                    }
-                }
-            } 
-            wordsCapture.text = words; */
+
+            Debug.Log("breakpoint");
+
+
+            /* header.text = $"Orientation: {azureFacesResponse.orientation} Language: {azureFacesResponse.language} Text Angle: {azureFacesResponse.textAngle}";
+
+             string words = string.Empty;
+             foreach (var region in azureFacesResponse.regions)
+             {
+                 foreach (var line in region.lines)
+                 {
+                     foreach (var word in line.words)
+                     { 
+                         words += word.text + "\n";
+                     }
+                 }
+             } 
+             wordsCapture.text = words; */
         } 
     }
 
