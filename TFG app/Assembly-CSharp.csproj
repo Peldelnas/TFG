@@ -53,16 +53,16 @@
     <UnityVersion>2020.3.22f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\RestClient\Scripts\Core\Models\RequestHeader.cs" />
-    <Compile Include="Assets\RestClient\Scripts\Core\RestWebClient.cs" />
-    <Compile Include="Assets\RestClient\Scripts\RestClientGetAndPostExample.cs" />
-    <Compile Include="Assets\RestClient\Scripts\RestClientHeadExample.cs" />
-    <Compile Include="Assets\RestClient\Scripts\Core\Models\Response.cs" />
+    <Compile Include="Assets\Scripts\RestClient\Scripts\Core\Models\RequestHeader.cs" />
+    <Compile Include="Assets\Scripts\RestClient\Scripts\Core\RestWebClient.cs" />
+    <Compile Include="Assets\Scripts\RestClient\Scripts\RestClientGetAndPostExample.cs" />
+    <Compile Include="Assets\Scripts\RestClient\Scripts\RestClientHeadExample.cs" />
+    <Compile Include="Assets\Scripts\RestClient\Scripts\Core\Models\Response.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
-    <Compile Include="Assets\RestClient\Scripts\RestClientExample.cs" />
-    <Compile Include="Assets\RestClient\Scripts\Models\AzureFacesResponse.cs" />
-    <Compile Include="Assets\RestClient\Scripts\Core\Singletons\Singleton.cs" />
+    <Compile Include="Assets\Scripts\RestClient\Scripts\RestClientExample.cs" />
+    <Compile Include="Assets\Scripts\RestClient\Scripts\Models\AzureFacesResponse.cs" />
     <Compile Include="Assets\Scripts\APIController.cs" />
+    <Compile Include="Assets\Scripts\RestClient\Scripts\Core\Singletons\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

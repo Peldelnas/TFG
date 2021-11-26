@@ -106,6 +106,6 @@ public class CameraScript : MonoBehaviour
     {
         display.texture = null;
         bytes = null;
-        ConfirmationButtons.SetActive(false);
+        ConfirmationButtons.SetActive(false);        
     }
 }
