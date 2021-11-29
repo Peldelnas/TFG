@@ -69,7 +69,7 @@ public class AzureEmotion
     public double contempt;
     public double disgust;
     public double fear;
-    public double hapiness;
+    public double happiness;
     public double neutral;
     public double sadness;
     public double surprise;

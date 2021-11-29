@@ -102,7 +102,7 @@ public class APIController : MonoBehaviour
             text += " contempt: " + azureFacesResponse.result[0].faceAttributes.emotion.contempt.ToString();
             text += " disgust: " + azureFacesResponse.result[0].faceAttributes.emotion.disgust.ToString();
             text += " fear: " + azureFacesResponse.result[0].faceAttributes.emotion.fear.ToString();
-            text += " hapiness: " + azureFacesResponse.result[0].faceAttributes.emotion.hapiness.ToString();
+            text += " happiness: " + azureFacesResponse.result[0].faceAttributes.emotion.happiness.ToString();
             text += " neutral: " + azureFacesResponse.result[0].faceAttributes.emotion.neutral.ToString();
             text += " sadness: " + azureFacesResponse.result[0].faceAttributes.emotion.sadness.ToString();
             text += " surprise: " + azureFacesResponse.result[0].faceAttributes.emotion.surprise.ToString();
