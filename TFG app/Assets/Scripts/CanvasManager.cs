@@ -9,7 +9,8 @@ public enum CanvasType
     MainMenu,
     FacilMenu,
     MedioMenu,
-    DificilMenu
+    DificilMenu,
+    SettingsMenu
 }
 
 public class CanvasManager : Singleton<CanvasManager>
@@ -21,6 +22,7 @@ public class CanvasManager : Singleton<CanvasManager>
         canvasControllerList = GetComponentsInChildren<CanvasController>().ToList();
         canvasControllerList.ForEach(x => x.gameObject.SetActive(false));
         SwitchCanvas(CanvasType.MainMenu);
+        
     }
 
     public void SwitchCanvas(CanvasType _type)
@@ -36,6 +38,6 @@ public class CanvasManager : Singleton<CanvasManager>
             desiredCanvas.gameObject.SetActive(true);
             lastActiveCanvas = desiredCanvas;
         }
-        else { Debug.LogWarning("Desired canvas was not found"); }
+        else { Debug.LogWarning("El canvas seleccionado no ha podido encontrarse"); }
     }
 }
