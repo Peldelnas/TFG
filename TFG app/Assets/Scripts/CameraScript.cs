@@ -18,10 +18,15 @@ public class CameraScript : MonoBehaviour
     public GameObject ErrorPanel;
     public GameObject PhotoButton;
     public GameObject ConfirmationButtons;
-    public Text startStopText;
+    //public Text startStopText;
     public APIController apiController;
 
     private byte[] bytes;
+
+    public void Start()
+    {
+        StartStopCam_Clicked();
+    }
 
     // cambiar cámara botón
     public void SwapCam_Clicked() {
@@ -56,7 +61,7 @@ public class CameraScript : MonoBehaviour
             
             tex.Play();
             PhotoButton.SetActive(true);
-            startStopText.text = "Apagar cámara";
+           // startStopText.text = "Apagar cámara";
 
         }
         } 
@@ -69,23 +74,24 @@ public class CameraScript : MonoBehaviour
         }        
     }
 
-    private void StopWebcam() 
+    public void StopWebcam() 
     {
         display.texture = null;
         tex.Stop();
         tex = null;
         PhotoButton.SetActive(false);
-        startStopText.text = "Encender cámara";
+       // startStopText.text = "Encender cámara";
     }
     //tomar foto botón
     public void TakePhoto_Clicked()
     {
+        ErrorPanel.SetActive(false);
         bytes = null;
         Texture2D texture = new Texture2D(display.texture.width, display.texture.height, TextureFormat.ARGB32, false);
         texture.SetPixels(tex.GetPixels());
         texture.Apply();
         bytes = texture.EncodeToPNG();        
-        StopWebcam();
+        //StopWebcam();
         //congelar la imagen y botones de confirmación
         ConfirmationButtons.SetActive(true);        
         display.texture = texture;
@@ -97,13 +103,14 @@ public class CameraScript : MonoBehaviour
         apiController.SendPhoto(bytes);
         //mostrar loading
         bytes = null;
+        display.texture = tex;
         ConfirmationButtons.SetActive(false);
 
     }
     //click en cancelar foto
     public void CancelButton_Clicked()
     {
-        display.texture = null;
+        display.texture = tex;
         bytes = null;
         ConfirmationButtons.SetActive(false);        
     }

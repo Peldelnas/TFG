@@ -21,14 +21,15 @@ public class APIController : MonoBehaviour
     [SerializeField]
     private string clientSecret;
 
-    [SerializeField]
-    private string imageToFaces = "";
+    //[SerializeField]
+    //private string imageToFaces = "";
 
     private RequestHeader clientSecurityHeader;
     private RequestHeader contentTypeHeader;
 
     //borrar
     public GameObject ErrorPanel;
+    public LevelController levelController;
 
 
     void Start()
@@ -49,24 +50,6 @@ public class APIController : MonoBehaviour
             Value = "application/octet-stream"
 
         };
-
-        // validation
-        //if (string.IsNullOrEmpty(imageToFaces))
-        //{
-        //    Debug.LogError("imageToOCR needs to be set through the inspector...");
-        //    return;
-        //}
-
-        //// build image url required by Azure Vision Faces
-        //ImageUrl imageUrl = new ImageUrl { Url = imageToFaces };
-
-        //// send a post request
-
-        //StartCoroutine(RestWebClient.Instance.HttpPost(baseUrl, JsonUtility.ToJson(imageUrl), (r) => OnRequestComplete(r), new List<RequestHeader>
-        //{
-        //    clientSecurityHeader,
-        //    contentTypeHeader
-        //}));
     }
 
     public void SendPhoto(byte[] photo)
@@ -91,13 +74,15 @@ public class APIController : MonoBehaviour
             string data = "{\"result\":" + response.Data.ToString() + "}";
             AzureFacesResponse azureFacesResponse = JsonUtility.FromJson<AzureFacesResponse>(data);
 
+            levelController.CompareResults(azureFacesResponse);
 
 
-            Debug.Log("breakpoint");
 
-            //borrar y ver mejor forma
-            ErrorPanel.SetActive(true);
-            Text ErrorText = ErrorPanel.GetComponentsInChildren<Text>()[0];
+
+
+
+
+
             String text = "anger: " + azureFacesResponse.result[0].faceAttributes.emotion.anger.ToString();
             text += " contempt: " + azureFacesResponse.result[0].faceAttributes.emotion.contempt.ToString();
             text += " disgust: " + azureFacesResponse.result[0].faceAttributes.emotion.disgust.ToString();
@@ -107,16 +92,13 @@ public class APIController : MonoBehaviour
             text += " sadness: " + azureFacesResponse.result[0].faceAttributes.emotion.sadness.ToString();
             text += " surprise: " + azureFacesResponse.result[0].faceAttributes.emotion.surprise.ToString();
 
-            ErrorText.text = text;
+            Debug.Log(text);
             
 
         }
     }
 
-    public class ImageUrl
-    {
-        public string Url;
-    }
+ 
 
     
 }

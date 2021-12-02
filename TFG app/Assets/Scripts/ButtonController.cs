@@ -29,7 +29,7 @@ public class ButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExi
     void OnButtonClicked()
     {
         
-        canvasManager.SwitchCanvas(desiredCanvasType);
+        canvasManager.SwitchCanvas(desiredCanvasType);        
         animator.SetBool("pressed", false);
     }
 
