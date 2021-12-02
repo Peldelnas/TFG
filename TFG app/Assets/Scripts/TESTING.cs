@@ -18,11 +18,11 @@ public class TESTING : MonoBehaviour
 
     void completarNivel1()
     {
-        GameController.Instance.completarNivel("Medio1", 3);
+        GameController.Instance.CompletarNivel("Medio1", 3);
     }
 
     void ResetearNiveles()
     {
-        GameController.Instance.resetearNiveles();
+        GameController.Instance.ResetearNiveles();
     }
 }

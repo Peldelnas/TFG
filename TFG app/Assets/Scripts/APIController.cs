@@ -29,6 +29,7 @@ public class APIController : MonoBehaviour
 
     //borrar
     public GameObject ErrorPanel;
+    public LevelController levelController;
 
 
     void Start()
@@ -73,13 +74,15 @@ public class APIController : MonoBehaviour
             string data = "{\"result\":" + response.Data.ToString() + "}";
             AzureFacesResponse azureFacesResponse = JsonUtility.FromJson<AzureFacesResponse>(data);
 
+            levelController.CompareResults(azureFacesResponse);
 
 
-            Debug.Log("breakpoint");
 
-            //borrar y ver mejor forma
-            ErrorPanel.SetActive(true);
-            Text ErrorText = ErrorPanel.GetComponentsInChildren<Text>()[0];
+
+
+
+
+
             String text = "anger: " + azureFacesResponse.result[0].faceAttributes.emotion.anger.ToString();
             text += " contempt: " + azureFacesResponse.result[0].faceAttributes.emotion.contempt.ToString();
             text += " disgust: " + azureFacesResponse.result[0].faceAttributes.emotion.disgust.ToString();
@@ -89,7 +92,7 @@ public class APIController : MonoBehaviour
             text += " sadness: " + azureFacesResponse.result[0].faceAttributes.emotion.sadness.ToString();
             text += " surprise: " + azureFacesResponse.result[0].faceAttributes.emotion.surprise.ToString();
 
-            ErrorText.text = text;
+            Debug.Log(text);
             
 
         }

@@ -19,7 +19,7 @@ public class GameController : Singleton<GameController>
         }
     }
 
-    public void completarNivel(string nivel, int estrellas)
+    public void CompletarNivel(string nivel, int estrellas)
     {
         try
         {
@@ -32,7 +32,7 @@ public class GameController : Singleton<GameController>
         }
     }
 
-    public int comprobarNivel(string nivel)
+    public int ComprobarNivel(string nivel)
     {
         if (gameData != null)
         {
@@ -52,12 +52,12 @@ public class GameController : Singleton<GameController>
     }
 
     //testing
-    public void resetearNiveles()
+    public void ResetearNiveles()
     {
         gameData.levels = new Dictionary<string, int>();
     }
 
-    public void guardarProgreso()
+    public void GuardarProgreso()
     {
         DataAccess.Save(gameData);
     }

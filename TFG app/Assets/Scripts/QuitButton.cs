@@ -6,7 +6,7 @@ public class QuitButton : MonoBehaviour
 {
     void doExitGame()
     {
-        GameController.Instance.guardarProgreso();
+        GameController.Instance.GuardarProgreso();
         Application.Quit();
     }
     

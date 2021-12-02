@@ -74,7 +74,7 @@ public class CameraScript : MonoBehaviour
         }        
     }
 
-    private void StopWebcam() 
+    public void StopWebcam() 
     {
         display.texture = null;
         tex.Stop();
