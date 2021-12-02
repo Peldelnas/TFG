@@ -85,7 +85,6 @@ public class CameraScript : MonoBehaviour
         texture.SetPixels(tex.GetPixels());
         texture.Apply();
         bytes = texture.EncodeToPNG();        
-        File.WriteAllBytes(Application.dataPath + "/images/testimg.png", bytes);
         StopWebcam();
         //congelar la imagen y botones de confirmación
         ConfirmationButtons.SetActive(true);        
@@ -106,6 +105,6 @@ public class CameraScript : MonoBehaviour
     {
         display.texture = null;
         bytes = null;
-        ConfirmationButtons.SetActive(false);
+        ConfirmationButtons.SetActive(false);        
     }
 }

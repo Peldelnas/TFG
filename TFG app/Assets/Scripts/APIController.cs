@@ -7,6 +7,9 @@ using RestClient.Core.Models;
 using TMPro;
 using UnityEngine;
 
+//borrar ui
+using UnityEngine.UI;
+
 public class APIController : MonoBehaviour
 {
     [SerializeField]
@@ -23,6 +26,9 @@ public class APIController : MonoBehaviour
 
     private RequestHeader clientSecurityHeader;
     private RequestHeader contentTypeHeader;
+
+    //borrar
+    public GameObject ErrorPanel;
 
 
     void Start()
@@ -89,21 +95,21 @@ public class APIController : MonoBehaviour
 
             Debug.Log("breakpoint");
 
+            //borrar y ver mejor forma
+            ErrorPanel.SetActive(true);
+            Text ErrorText = ErrorPanel.GetComponentsInChildren<Text>()[0];
+            String text = "anger: " + azureFacesResponse.result[0].faceAttributes.emotion.anger.ToString();
+            text += " contempt: " + azureFacesResponse.result[0].faceAttributes.emotion.contempt.ToString();
+            text += " disgust: " + azureFacesResponse.result[0].faceAttributes.emotion.disgust.ToString();
+            text += " fear: " + azureFacesResponse.result[0].faceAttributes.emotion.fear.ToString();
+            text += " happiness: " + azureFacesResponse.result[0].faceAttributes.emotion.happiness.ToString();
+            text += " neutral: " + azureFacesResponse.result[0].faceAttributes.emotion.neutral.ToString();
+            text += " sadness: " + azureFacesResponse.result[0].faceAttributes.emotion.sadness.ToString();
+            text += " surprise: " + azureFacesResponse.result[0].faceAttributes.emotion.surprise.ToString();
 
-            /* header.text = $"Orientation: {azureFacesResponse.orientation} Language: {azureFacesResponse.language} Text Angle: {azureFacesResponse.textAngle}";
+            ErrorText.text = text;
+            
 
-             string words = string.Empty;
-             foreach (var region in azureFacesResponse.regions)
-             {
-                 foreach (var line in region.lines)
-                 {
-                     foreach (var word in line.words)
-                     { 
-                         words += word.text + "\n";
-                     }
-                 }
-             } 
-             wordsCapture.text = words; */
         }
     }
 
