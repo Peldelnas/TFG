@@ -1253,7 +1253,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1852987494}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
-        m_MethodName: returnToMainMenu
+        m_MethodName: ReturnToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
