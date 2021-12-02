@@ -20,4 +20,9 @@ public class TESTING : MonoBehaviour
     {
         GameController.Instance.completarNivel("Medio1", 3);
     }
+
+    void ResetearNiveles()
+    {
+        GameController.Instance.resetearNiveles();
+    }
 }
