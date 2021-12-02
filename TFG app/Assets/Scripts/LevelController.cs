@@ -54,6 +54,9 @@ public class LevelController : MonoBehaviour
     public GameObject VictoryPanel;
     public GameObject ErrorPanel;
 
+    public AudioSource successAudio;
+    public AudioSource wrongAudio;
+    public AudioSource tadaAudio;
     int stage = 1;
     int score = 0;
     Image spriteDef;
@@ -145,9 +148,11 @@ public class LevelController : MonoBehaviour
                 {
                     score++;
                     star1.GetComponent<Image>().sprite = starFull;
+                    successAudio.Play();
                 }
                 else
                 {
+                    wrongAudio.Play();
                     star1.GetComponent<Image>().sprite = starEmpty;
                 }
                 spriteDef.sprite = image2;
@@ -215,9 +220,11 @@ public class LevelController : MonoBehaviour
                 {
                     score++;
                     star2.GetComponent<Image>().sprite = starFull;
+                    successAudio.Play();
                 }
                 else
                 {
+                    wrongAudio.Play();
                     star2.GetComponent<Image>().sprite = starEmpty;
                 }
                 spriteDef.sprite = image3;
@@ -321,11 +328,13 @@ public class LevelController : MonoBehaviour
     {
         if (score > 0)
         {
-            star1Ending.GetComponent<Image>().sprite = starFull;            
+            star1Ending.GetComponent<Image>().sprite = starFull;
+            tadaAudio.Play();
         }
         else
         {
             star1Ending.GetComponent<Image>().sprite = starEmpty;
+            wrongAudio.Play();
         }
         if (score > 1)
         {
