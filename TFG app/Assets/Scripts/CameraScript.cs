@@ -85,6 +85,7 @@ public class CameraScript : MonoBehaviour
     //tomar foto botón
     public void TakePhoto_Clicked()
     {
+        ErrorPanel.SetActive(false);
         bytes = null;
         Texture2D texture = new Texture2D(display.texture.width, display.texture.height, TextureFormat.ARGB32, false);
         texture.SetPixels(tex.GetPixels());

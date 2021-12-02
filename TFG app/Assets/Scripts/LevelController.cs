@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,6 +52,7 @@ public class LevelController : MonoBehaviour
 
     public CameraScript cameraScript;
     public GameObject VictoryPanel;
+    public GameObject ErrorPanel;
 
     int stage = 1;
     int score = 0;
@@ -78,218 +80,230 @@ public class LevelController : MonoBehaviour
     {
         bool success = true;
         //hardcoded
-        if (stage == 1)
-        {
-            if (angerMin1 > 0 )
-            {
-                if (response.result[0].faceAttributes.emotion.anger < angerMin1)
-                {
-                    success = false;
-                }
-            }
-            if (contemptMin1 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.anger < contemptMin1)
-                {
-                    success = false;
-                }
-            }
-            if (disgustMin1 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.disgust < disgustMin1)
-                {
-                    success = false;
-                }
-            }
-            if (fearMin1 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.fear < fearMin1)
-                {
-                    success = false;
-                }
-            }
-            if (happinessMin1 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.happiness < happinessMin1)
-                {
-                    success = false;
-                }
-            }
-            if (neutralMin1 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.neutral < neutralMin1)
-                {
-                    success = false;
-                }
-            }
-            if (sadnessMin1 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.sadness < sadnessMin1)
-                {
-                    success = false;
-                }
-            }
-            if (surpriseMin1 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.surprise < surpriseMin1)
-                {
-                    success = false;
-                }
-            }
-            if (success)
-            {
-                score++;
-                star1.GetComponent<Image>().sprite = starFull;
-            }
-            else
-            {
-                star1.GetComponent<Image>().sprite = starEmpty;
-            }
-            spriteDef.sprite = image2;
-        }
 
-        if (stage == 2)
+        try
         {
-            if (angerMin2 > 0)
+            if (stage == 1)
             {
-                if (response.result[0].faceAttributes.emotion.anger < angerMin2)
+                if (angerMin1 > 0)
                 {
-                    success = false;
+                    if (response.result[0].faceAttributes.emotion.anger < angerMin1)
+                    {
+                        success = false;
+                    }
                 }
-            }
-            if (contemptMin2 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.anger < contemptMin2)
+                if (contemptMin1 > 0)
                 {
-                    success = false;
+                    if (response.result[0].faceAttributes.emotion.anger < contemptMin1)
+                    {
+                        success = false;
+                    }
                 }
-            }
-            if (disgustMin2 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.disgust < disgustMin2)
+                if (disgustMin1 > 0)
                 {
-                    success = false;
+                    if (response.result[0].faceAttributes.emotion.disgust < disgustMin1)
+                    {
+                        success = false;
+                    }
                 }
-            }
-            if (fearMin2 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.fear < fearMin2)
+                if (fearMin1 > 0)
                 {
-                    success = false;
+                    if (response.result[0].faceAttributes.emotion.fear < fearMin1)
+                    {
+                        success = false;
+                    }
                 }
-            }
-            if (happinessMin2 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.happiness < happinessMin2)
+                if (happinessMin1 > 0)
                 {
-                    success = false;
+                    if (response.result[0].faceAttributes.emotion.happiness < happinessMin1)
+                    {
+                        success = false;
+                    }
                 }
-            }
-            if (neutralMin2 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.neutral < neutralMin2)
+                if (neutralMin1 > 0)
                 {
-                    success = false;
+                    if (response.result[0].faceAttributes.emotion.neutral < neutralMin1)
+                    {
+                        success = false;
+                    }
                 }
-            }
-            if (sadnessMin2 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.sadness < sadnessMin2)
+                if (sadnessMin1 > 0)
                 {
-                    success = false;
+                    if (response.result[0].faceAttributes.emotion.sadness < sadnessMin1)
+                    {
+                        success = false;
+                    }
                 }
-            }
-            if (surpriseMin2 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.surprise < surpriseMin2)
+                if (surpriseMin1 > 0)
                 {
-                    success = false;
+                    if (response.result[0].faceAttributes.emotion.surprise < surpriseMin1)
+                    {
+                        success = false;
+                    }
                 }
+                if (success)
+                {
+                    score++;
+                    star1.GetComponent<Image>().sprite = starFull;
+                }
+                else
+                {
+                    star1.GetComponent<Image>().sprite = starEmpty;
+                }
+                spriteDef.sprite = image2;
             }
-            if (success)
-            {
-                score++;
-                star2.GetComponent<Image>().sprite = starFull;
-            }
-            else
-            {
-                star2.GetComponent<Image>().sprite = starEmpty;
-            }
-            spriteDef.sprite = image3;
-        }
 
-        if (stage == 3)
-        {
-            if (angerMin3 > 0)
+            if (stage == 2)
             {
-                if (response.result[0].faceAttributes.emotion.anger < angerMin3)
+                if (angerMin2 > 0)
                 {
-                    success = false;
+                    if (response.result[0].faceAttributes.emotion.anger < angerMin2)
+                    {
+                        success = false;
+                    }
+                }
+                if (contemptMin2 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.anger < contemptMin2)
+                    {
+                        success = false;
+                    }
+                }
+                if (disgustMin2 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.disgust < disgustMin2)
+                    {
+                        success = false;
+                    }
+                }
+                if (fearMin2 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.fear < fearMin2)
+                    {
+                        success = false;
+                    }
+                }
+                if (happinessMin2 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.happiness < happinessMin2)
+                    {
+                        success = false;
+                    }
+                }
+                if (neutralMin2 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.neutral < neutralMin2)
+                    {
+                        success = false;
+                    }
+                }
+                if (sadnessMin2 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.sadness < sadnessMin2)
+                    {
+                        success = false;
+                    }
+                }
+                if (surpriseMin2 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.surprise < surpriseMin2)
+                    {
+                        success = false;
+                    }
+                }
+                if (success)
+                {
+                    score++;
+                    star2.GetComponent<Image>().sprite = starFull;
+                }
+                else
+                {
+                    star2.GetComponent<Image>().sprite = starEmpty;
+                }
+                spriteDef.sprite = image3;
+            }
+
+            if (stage == 3)
+            {
+                if (angerMin3 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.anger < angerMin3)
+                    {
+                        success = false;
+                    }
+                }
+                if (contemptMin3 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.anger < contemptMin3)
+                    {
+                        success = false;
+                    }
+                }
+                if (disgustMin3 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.disgust < disgustMin3)
+                    {
+                        success = false;
+                    }
+                }
+                if (fearMin3 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.fear < fearMin3)
+                    {
+                        success = false;
+                    }
+                }
+                if (happinessMin3 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.happiness < happinessMin3)
+                    {
+                        success = false;
+                    }
+                }
+                if (neutralMin3 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.neutral < neutralMin3)
+                    {
+                        success = false;
+                    }
+                }
+                if (sadnessMin3 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.sadness < sadnessMin3)
+                    {
+                        success = false;
+                    }
+                }
+                if (surpriseMin3 > 0)
+                {
+                    if (response.result[0].faceAttributes.emotion.surprise < surpriseMin3)
+                    {
+                        success = false;
+                    }
+                }
+                if (success)
+                {
+                    score++;
+                    star3.GetComponent<Image>().sprite = starFull;
+                    FinalizarNivel();
+                }
+                else
+                {
+                    star3.GetComponent<Image>().sprite = starEmpty;
+                    FinalizarNivel();
                 }
             }
-            if (contemptMin3 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.anger < contemptMin3)
-                {
-                    success = false;
-                }
-            }
-            if (disgustMin3 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.disgust < disgustMin3)
-                {
-                    success = false;
-                }
-            }
-            if (fearMin3 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.fear < fearMin3)
-                {
-                    success = false;
-                }
-            }
-            if (happinessMin3 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.happiness < happinessMin3)
-                {
-                    success = false;
-                }
-            }
-            if (neutralMin3 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.neutral < neutralMin3)
-                {
-                    success = false;
-                }
-            }
-            if (sadnessMin3 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.sadness < sadnessMin3)
-                {
-                    success = false;
-                }
-            }
-            if (surpriseMin3 > 0)
-            {
-                if (response.result[0].faceAttributes.emotion.surprise < surpriseMin3)
-                {
-                    success = false;
-                }
-            }
-            if (success)
-            {
-                score++;
-                star3.GetComponent<Image>().sprite = starFull;
-                FinalizarNivel();
-            }
-            else
-            {
-                star3.GetComponent<Image>().sprite = starEmpty;
-                FinalizarNivel();
-            }
+            stage++;
         }
         
-        stage++;
+        catch (IndexOutOfRangeException)
+        {
+            ErrorPanel.SetActive(true);
+            Text ErrorText = ErrorPanel.GetComponentsInChildren<Text>()[0];
+            ErrorText.text = "¡Cuidado! No se ha podido detectar una cara en la imagen.";
+        }
+        
+        
     }
 
     public void ReturnToMainMenu()

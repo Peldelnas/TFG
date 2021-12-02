@@ -1486,7 +1486,7 @@ RectTransform:
   - {fileID: 228552487}
   - {fileID: 1963630360}
   m_Father: {fileID: 1911201404}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1763,7 +1763,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1911201404}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2530,6 +2530,7 @@ MonoBehaviour:
   star3Ending: {fileID: 1377159310}
   cameraScript: {fileID: 1852987496}
   VictoryPanel: {fileID: 536574580}
+  ErrorPanel: {fileID: 1197911314}
 --- !u!114 &1852987495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2773,8 +2774,8 @@ RectTransform:
   - {fileID: 264927211}
   - {fileID: 732991325}
   - {fileID: 1986554199}
-  - {fileID: 1197911315}
   - {fileID: 1436788476}
+  - {fileID: 1197911315}
   - {fileID: 536574581}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2843,7 +2844,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: db00337bb27641840adc6e7946d17eed, type: 3}
-    m_FontSize: 150
+    m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
