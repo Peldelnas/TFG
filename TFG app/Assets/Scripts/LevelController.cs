@@ -80,56 +80,56 @@ public class LevelController : MonoBehaviour
         //hardcoded
         if (stage == 1)
         {
-            if (angerMin1 < 0)
+            if (angerMin1 > 0 )
             {
                 if (response.result[0].faceAttributes.emotion.anger < angerMin1)
                 {
                     success = false;
                 }
             }
-            if (contemptMin1 < 0)
+            if (contemptMin1 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.anger < contemptMin1)
                 {
                     success = false;
                 }
             }
-            if (disgustMin1 < 0)
+            if (disgustMin1 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.disgust < disgustMin1)
                 {
                     success = false;
                 }
             }
-            if (fearMin1 < 0)
+            if (fearMin1 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.fear < fearMin1)
                 {
                     success = false;
                 }
             }
-            if (happinessMin1 < 0)
+            if (happinessMin1 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.happiness < happinessMin1)
                 {
                     success = false;
                 }
             }
-            if (neutralMin1 < 0)
+            if (neutralMin1 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.neutral < neutralMin1)
                 {
                     success = false;
                 }
             }
-            if (sadnessMin1 < 0)
+            if (sadnessMin1 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.sadness < sadnessMin1)
                 {
                     success = false;
                 }
             }
-            if (surpriseMin1 < 0)
+            if (surpriseMin1 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.surprise < surpriseMin1)
                 {
@@ -150,56 +150,56 @@ public class LevelController : MonoBehaviour
 
         if (stage == 2)
         {
-            if (angerMin2 < 0)
+            if (angerMin2 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.anger < angerMin2)
                 {
                     success = false;
                 }
             }
-            if (contemptMin2 < 0)
+            if (contemptMin2 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.anger < contemptMin2)
                 {
                     success = false;
                 }
             }
-            if (disgustMin2 < 0)
+            if (disgustMin2 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.disgust < disgustMin2)
                 {
                     success = false;
                 }
             }
-            if (fearMin2 < 0)
+            if (fearMin2 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.fear < fearMin2)
                 {
                     success = false;
                 }
             }
-            if (happinessMin2 < 0)
+            if (happinessMin2 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.happiness < happinessMin2)
                 {
                     success = false;
                 }
             }
-            if (neutralMin2 < 0)
+            if (neutralMin2 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.neutral < neutralMin2)
                 {
                     success = false;
                 }
             }
-            if (sadnessMin2 < 0)
+            if (sadnessMin2 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.sadness < sadnessMin2)
                 {
                     success = false;
                 }
             }
-            if (surpriseMin2 < 0)
+            if (surpriseMin2 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.surprise < surpriseMin2)
                 {
@@ -220,56 +220,56 @@ public class LevelController : MonoBehaviour
 
         if (stage == 3)
         {
-            if (angerMin3 < 0)
+            if (angerMin3 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.anger < angerMin3)
                 {
                     success = false;
                 }
             }
-            if (contemptMin3 < 0)
+            if (contemptMin3 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.anger < contemptMin3)
                 {
                     success = false;
                 }
             }
-            if (disgustMin3 < 0)
+            if (disgustMin3 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.disgust < disgustMin3)
                 {
                     success = false;
                 }
             }
-            if (fearMin3 < 0)
+            if (fearMin3 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.fear < fearMin3)
                 {
                     success = false;
                 }
             }
-            if (happinessMin3 < 0)
+            if (happinessMin3 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.happiness < happinessMin3)
                 {
                     success = false;
                 }
             }
-            if (neutralMin3 < 0)
+            if (neutralMin3 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.neutral < neutralMin3)
                 {
                     success = false;
                 }
             }
-            if (sadnessMin3 < 0)
+            if (sadnessMin3 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.sadness < sadnessMin3)
                 {
                     success = false;
                 }
             }
-            if (surpriseMin3 < 0)
+            if (surpriseMin3 > 0)
             {
                 if (response.result[0].faceAttributes.emotion.surprise < surpriseMin3)
                 {
@@ -307,31 +307,33 @@ public class LevelController : MonoBehaviour
     {
         if (score > 0)
         {
-            star1Ending.GetComponent<Image>().sprite = starFull;
-            if (score > 1)
-            {
-                star2Ending.GetComponent<Image>().sprite = starFull;
-                if (score > 2)
-                {
-                    star3Ending.GetComponent<Image>().sprite = starFull;
-                }
-                else
-                {
-                    star3Ending.GetComponent<Image>().sprite = starEmpty;
-                }
-            }
-            else
-            {
-                star2Ending.GetComponent<Image>().sprite = starEmpty;
-            }
+            star1Ending.GetComponent<Image>().sprite = starFull;            
         }
         else
         {
             star1Ending.GetComponent<Image>().sprite = starEmpty;
         }
+        if (score > 1)
+        {
+            star2Ending.GetComponent<Image>().sprite = starFull;
+        }
+        else
+        {
+            star2Ending.GetComponent<Image>().sprite = starEmpty;
+        }
+        
+        if (score > 2)
+        {
+            star3Ending.GetComponent<Image>().sprite = starFull;
+        }
+        else
+        {
+            star3Ending.GetComponent<Image>().sprite = starEmpty;
+        }
         VictoryPanel.SetActive(true);
         string nivelCompletado = difficulty.ToString() + nivel.ToString();
         GameController.Instance.CompletarNivel(nivelCompletado, score);
+        GameController.Instance.GuardarProgreso();
         
     }
 }
