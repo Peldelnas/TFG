@@ -55,16 +55,18 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Core\Models\RequestHeader.cs" />
     <Compile Include="Assets\Scripts\Core\RestWebClient.cs" />
+    <Compile Include="Assets\Scripts\AnimatorFunctions.cs" />
     <Compile Include="Assets\Scripts\Core\Models\Response.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\Models\AzureFacesResponse.cs" />
     <Compile Include="Assets\Scripts\CanvasManager.cs" />
+    <Compile Include="Assets\Scripts\ButtonController.cs" />
     <Compile Include="Assets\Scripts\APIController.cs" />
     <Compile Include="Assets\Scripts\Core\Singletons\Singleton.cs" />
-    <Compile Include="Assets\Scripts\CanvasController.cs" />
-    <Compile Include="Assets\Scripts\ButtonController.cs" />
-    <Compile Include="Assets\Scripts\AnimatorFunctions.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\CanvasController.cs" />
+    <Compile Include="Assets\Scripts\LevelSelector.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
