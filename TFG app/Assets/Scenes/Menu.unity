@@ -799,8 +799,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 340109275}
+  - component: {fileID: 340109276}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,6 +821,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340109276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340109274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8763132f68df224e80646403066a2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &528717702 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 941659642990691554, guid: 3ddf485a8b32afb4e8588e6938aa93bd, type: 3}
@@ -1549,6 +1562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70cfa65c1cd42e74f83204b186ec08e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds: []
 --- !u!1 &972722185
 GameObject:
   m_ObjectHideFlags: 0
