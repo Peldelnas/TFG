@@ -21,8 +21,8 @@ public class APIController : MonoBehaviour
     [SerializeField]
     private string clientSecret;
 
-    [SerializeField]
-    private string imageToFaces = "";
+    //[SerializeField]
+    //private string imageToFaces = "";
 
     private RequestHeader clientSecurityHeader;
     private RequestHeader contentTypeHeader;

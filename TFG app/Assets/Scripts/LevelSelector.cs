@@ -11,12 +11,13 @@ public class LevelSelector : MonoBehaviour
     public Image star2;
     public Image star3;
     public Sprite starEmpty;
-    public Sprite starFull;    
+    public Sprite starFull;
 
+    private string nivelString;
 
     public void Start()
     {
-        string nivelString = dificultad.ToString() + nivel.ToString();
+        nivelString = dificultad.ToString() + nivel.ToString();
         
         switch(GameController.Instance.comprobarNivel(nivelString))
         {
@@ -49,6 +50,37 @@ public class LevelSelector : MonoBehaviour
     public void StartLevel()
     {
         SceneLoader.Instance.SwitchLevel(dificultad, nivel);
+    }
+
+    public void UpdateLevel()
+    {
+        nivelString = dificultad.ToString() + nivel.ToString();
+        switch (GameController.Instance.comprobarNivel(nivelString))
+        {
+            case 1:
+                star1.sprite = starFull;
+                star2.sprite = starEmpty;
+                star3.sprite = starEmpty;
+                break;
+
+            case 2:
+                star1.sprite = starFull;
+                star2.sprite = starFull;
+                star3.sprite = starEmpty;
+                break;
+
+            case 3:
+                star1.sprite = starFull;
+                star2.sprite = starFull;
+                star3.sprite = starFull;
+                break;
+
+            default:
+                star1.sprite = starEmpty;
+                star2.sprite = starEmpty;
+                star3.sprite = starEmpty;
+                break;
+        }
     }
 
     
