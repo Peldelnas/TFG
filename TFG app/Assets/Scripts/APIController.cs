@@ -49,24 +49,6 @@ public class APIController : MonoBehaviour
             Value = "application/octet-stream"
 
         };
-
-        // validation
-        //if (string.IsNullOrEmpty(imageToFaces))
-        //{
-        //    Debug.LogError("imageToOCR needs to be set through the inspector...");
-        //    return;
-        //}
-
-        //// build image url required by Azure Vision Faces
-        //ImageUrl imageUrl = new ImageUrl { Url = imageToFaces };
-
-        //// send a post request
-
-        //StartCoroutine(RestWebClient.Instance.HttpPost(baseUrl, JsonUtility.ToJson(imageUrl), (r) => OnRequestComplete(r), new List<RequestHeader>
-        //{
-        //    clientSecurityHeader,
-        //    contentTypeHeader
-        //}));
     }
 
     public void SendPhoto(byte[] photo)
@@ -113,10 +95,7 @@ public class APIController : MonoBehaviour
         }
     }
 
-    public class ImageUrl
-    {
-        public string Url;
-    }
+ 
 
     
 }

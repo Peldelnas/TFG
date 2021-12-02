@@ -17,6 +17,8 @@ public class SceneLoader : Singleton<SceneLoader>
     public void SwitchLevel(Difficulty difficulty, int level)
     {
         SceneManager.LoadScene(difficulty.ToString() + level.ToString());
+
+        Debug.Log(GameController.Instance.comprobarNivel("Medio1"));
         
     }
 
