@@ -31,9 +31,12 @@ public class APIController : MonoBehaviour
     public GameObject ErrorPanel;
     public LevelController levelController;
 
+    public GameObject Loading;
+
 
     void Start()
     {
+        Loading.SetActive(false);
         // setup the request header
         clientSecurityHeader = new RequestHeader
         {
@@ -53,7 +56,8 @@ public class APIController : MonoBehaviour
     }
 
     public void SendPhoto(byte[] photo)
-    {      
+    {
+        Loading.SetActive(true);
         StartCoroutine(RestWebClient.Instance.HttpPostStream(baseUrl,photo , (r) => OnRequestComplete(r), new List<RequestHeader>
         {
             clientSecurityHeader,
@@ -67,6 +71,7 @@ public class APIController : MonoBehaviour
         Debug.Log($"Data: {response.Data}");
         Debug.Log($"Error: {response.Error}");
 
+        Loading.SetActive(false);
         //aquí vemos el response
         if (string.IsNullOrEmpty(response.Error) && !string.IsNullOrEmpty(response.Data))
         {

@@ -11,7 +11,8 @@ public enum CanvasType
     FacilMenu,
     MedioMenu,
     DificilMenu,
-    SettingsMenu
+    SettingsMenu,
+    InfoMenu
 }
 
 public class CanvasManager : Singleton<CanvasManager>

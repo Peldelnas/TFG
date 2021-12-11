@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CameraScript">
+    <Position X="5.5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAQEAAQQCAAACAAIKgAAAAAAAEAAAgAAAAAAAIAAEA=</HashCode>
+      <FileName>Assets\Scripts\CameraScript.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="apiController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AnimatorFunctions">
+    <Position X="9" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\AnimatorFunctions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIController">
+    <Position X="2.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAQAAACgAAAAAAAAAAACAAAAAAgAIgCAAIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\APIController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonController" BaseTypeListCollapsed="true">
+    <Position X="13" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAABBACAIAAAAAAAAAAAAAAAgAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ButtonController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.846" Collapsed="true" />
+  </Class>
+  <Class Name="CanvasController">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CanvasController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CanvasManager" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAgAAAAAAAAAQAABAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\CanvasManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataAccess" Collapsed="true">
+    <Position X="12.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAgIAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\Scripts\DataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameController">
+    <Position X="8.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAEAAQAAAAAAAAAAACAAAAAAAMA=</HashCode>
+      <FileName>Assets\Scripts\GameController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameData">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelController" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wghEQAAhwCiAQIAQELCJICAAFBRAGAAABAgiAOECAgA=</HashCode>
+      <FileName>Assets\Scripts\LevelController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelSelector" Collapsed="true">
+    <Position X="3" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUAAAgACAAAAAQAAAAAggABAAAEAAAAQAAAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\LevelSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuitButton">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\QuitButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneLoader">
+    <Position X="6.75" Y="6.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\SceneLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TESTING" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Scripts\TESTING.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CanvasType" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAASAAAIIAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CanvasManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Difficulty" Collapsed="true">
+    <Position X="1" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\SceneLoader.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

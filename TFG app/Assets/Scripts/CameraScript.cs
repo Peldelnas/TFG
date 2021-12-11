@@ -18,7 +18,7 @@ public class CameraScript : MonoBehaviour
     public GameObject ErrorPanel;
     public GameObject PhotoButton;
     public GameObject ConfirmationButtons;
-    //public Text startStopText;
+
     public APIController apiController;
 
     private byte[] bytes;

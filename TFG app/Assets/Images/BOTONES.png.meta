@@ -49,7 +49,10 @@ TextureImporter:
     second: check
   - first:
       213: 8360457788036806822
-    second: transparent
+    second: negra
+  - first:
+      213: -6421814334539341314
+    second: infoButton
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -478,15 +481,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: transparent
+      name: negra
       rect:
         serializedVersion: 2
-        x: 1576
-        y: 910
-        width: 213
-        height: 223
+        x: 1599
+        y: 936
+        width: 218
+        height: 211
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -494,6 +497,27 @@ TextureImporter:
       bones: []
       spriteID: 6a8f4970010560470800000000000000
       internalID: 8360457788036806822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: infoButton
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 446
+        width: 179
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1654013e121e6a0800000000000000
+      internalID: -6421814334539341314
       vertices: []
       indices: 
       edges: []

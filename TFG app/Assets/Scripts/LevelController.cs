@@ -43,7 +43,8 @@ public class LevelController : MonoBehaviour
     public GameObject star3;
     public Sprite starEmpty;
     public Sprite starFull;
-    public Sprite transparent;
+    public Sprite negra;
+
     public GameObject imageDef;
 
     public GameObject star1Ending;
@@ -61,20 +62,22 @@ public class LevelController : MonoBehaviour
     int score = 0;
     Image spriteDef;
 
+
     // Start is called before the first frame update
     void Start()
     {
         stage = 1;
-        star1.GetComponent<Image>().sprite = transparent;
-        star2.GetComponent<Image>().sprite = transparent;
-        star3.GetComponent<Image>().sprite = transparent;
+        star1.GetComponent<Image>().sprite = starEmpty;
+        star2.GetComponent<Image>().sprite = starEmpty;
+        star3.GetComponent<Image>().sprite = starEmpty;
 
-        star1Ending.GetComponent<Image>().sprite = transparent;
-        star2Ending.GetComponent<Image>().sprite = transparent;
-        star3Ending.GetComponent<Image>().sprite = transparent;
+        star1Ending.GetComponent<Image>().sprite = starEmpty;
+        star2Ending.GetComponent<Image>().sprite = starEmpty;
+        star3Ending.GetComponent<Image>().sprite = starEmpty;
 
         spriteDef = imageDef.GetComponent<Image>();
         spriteDef.sprite = image1;
+
     }
 
     
@@ -153,7 +156,7 @@ public class LevelController : MonoBehaviour
                 else
                 {
                     wrongAudio.Play();
-                    star1.GetComponent<Image>().sprite = starEmpty;
+                    star1.GetComponent<Image>().sprite = negra;
                 }
                 spriteDef.sprite = image2;
             }
@@ -225,7 +228,7 @@ public class LevelController : MonoBehaviour
                 else
                 {
                     wrongAudio.Play();
-                    star2.GetComponent<Image>().sprite = starEmpty;
+                    star2.GetComponent<Image>().sprite = negra;
                 }
                 spriteDef.sprite = image3;
             }
@@ -292,12 +295,14 @@ public class LevelController : MonoBehaviour
                 {
                     score++;
                     star3.GetComponent<Image>().sprite = starFull;
-                    FinalizarNivel();
+                    successAudio.Play();
+                    StartCoroutine(Wait());
                 }
                 else
                 {
-                    star3.GetComponent<Image>().sprite = starEmpty;
-                    FinalizarNivel();
+                    star3.GetComponent<Image>().sprite = negra;
+                    wrongAudio.Play();
+                    StartCoroutine(Wait());
                 }
             }
             stage++;
@@ -324,8 +329,44 @@ public class LevelController : MonoBehaviour
         SceneManager.LoadScene(difficulty.ToString() + nivel.ToString());
     }
 
-    public void FinalizarNivel()
+    IEnumerator Wait()
     {
+        yield return new WaitForSeconds(1.6f);
+        if (score > 0)
+        {
+            star1Ending.GetComponent<Image>().sprite = starFull;
+            tadaAudio.Play();
+        }
+        else
+        {
+            star1Ending.GetComponent<Image>().sprite = starEmpty;
+            wrongAudio.Play();
+        }
+        if (score > 1)
+        {
+            star2Ending.GetComponent<Image>().sprite = starFull;
+        }
+        else
+        {
+            star2Ending.GetComponent<Image>().sprite = starEmpty;
+        }
+
+        if (score > 2)
+        {
+            star3Ending.GetComponent<Image>().sprite = starFull;
+        }
+        else
+        {
+            star3Ending.GetComponent<Image>().sprite = starEmpty;
+        }
+        VictoryPanel.SetActive(true);
+        string nivelCompletado = difficulty.ToString() + nivel.ToString();
+        GameController.Instance.CompletarNivel(nivelCompletado, score);
+        GameController.Instance.GuardarProgreso();
+    }
+
+    public void FinalizarNivel()
+    {        
         if (score > 0)
         {
             star1Ending.GetComponent<Image>().sprite = starFull;
