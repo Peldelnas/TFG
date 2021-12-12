@@ -756,7 +756,7 @@ RectTransform:
   - {fileID: 1829491343}
   - {fileID: 191815245}
   m_Father: {fileID: 961354323}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -997,7 +997,7 @@ RectTransform:
   - {fileID: 775782131}
   - {fileID: 54442080}
   m_Father: {fileID: 961354323}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2457,7 +2457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 101, y: -131}
+  m_AnchoredPosition: {x: -388.7, y: -137.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &775782132
@@ -2573,8 +2573,9 @@ MonoBehaviour:
     que ambas expresiones coinciden, pulsa el bot\xF3n de capturar imagen.\nCuando
     lo hagas, la imagen se quedar\xE1 fija. Si quieres repetir la foto pulsa el bot\xF3n
     de cancelar imagen           y podr\xE1s repetir la foto. Cuando creas que la
-    imagen es correcta, pulsa el bot\xF3n           \nSi has acertado, oir\xE1s un
-    sonido de felicitaci\xF3n y en el tabl\xF3n se rellenar\xE1 una estrella dorada.
+    imagen es correcta, pulsa el bot\xF3n.           El icono al lado de tu foto
+    indicar\xE1 la expresi\xF3n que has hecho.          \nSi has acertado, oir\xE1s
+    un sonido de felicitaci\xF3n y en el tabl\xF3n se rellenar\xE1 una estrella dorada.
     Tras completar las 3 im\xE1genes del nivel, aparecer\xE1 tu puntuaci\xF3n obtenida:
     0, 1, 2 \xF3 3 estrellas."
 --- !u!222 &858402104
@@ -2833,9 +2834,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 391198135}
+  - {fileID: 297633810}
   - {fileID: 972722186}
   - {fileID: 250585127}
-  - {fileID: 297633810}
   - {fileID: 252682421}
   - {fileID: 2114167350}
   m_Father: {fileID: 0}
@@ -2992,7 +2993,7 @@ RectTransform:
   - {fileID: 587018320}
   - {fileID: 1878231324}
   m_Father: {fileID: 961354323}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

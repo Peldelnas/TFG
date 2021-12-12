@@ -62,6 +62,18 @@ public class LevelController : MonoBehaviour
     int score = 0;
     Image spriteDef;
 
+    public Sprite feedTrans;
+    public Image feedImage;
+    public Text feedText;
+    public Sprite angerS;
+    public Sprite contemptS;
+    public Sprite disgustS;
+    public Sprite fearS;
+    public Sprite happinessS;
+    public Sprite neutralS;
+    public Sprite sadnessS;
+    public Sprite surpriseS;
+
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +90,9 @@ public class LevelController : MonoBehaviour
         spriteDef = imageDef.GetComponent<Image>();
         spriteDef.sprite = image1;
 
+        feedImage.sprite = feedTrans;
+        feedText.text = "";
+
     }
 
     
@@ -89,8 +104,126 @@ public class LevelController : MonoBehaviour
 
         try
         {
-            if (stage == 1)
+
+            int indexFeed = 0;
+            double maxFeed = 0;
+
+            for (int it = 0; it < 2; it++)
             {
+                if (response.result[0].faceAttributes.emotion.anger >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.anger;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = angerS;
+                        feedText.text = "Enfado";
+                    }
+
+
+                }
+                if (response.result[0].faceAttributes.emotion.contempt >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.contempt;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = contemptS;
+                        feedText.text = "Desprecio";
+                    }
+
+                }
+
+                if (response.result[0].faceAttributes.emotion.disgust >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.disgust;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = disgustS;
+                        feedText.text = "Disgusto";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.fear >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.fear;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = fearS;
+                        feedText.text = "Miedo";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.happiness >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.happiness;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = happinessS;
+                        feedText.text = "Felicidad";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.neutral >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.neutral;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = neutralS;
+                        feedText.text = "Neutro";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.sadness >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.sadness;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = sadnessS;
+                        feedText.text = "Tristeza";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.surprise >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.surprise;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = surpriseS;
+                        feedText.text = "Sorpresa";
+                    }
+
+                }
+
+
+            }
+
+
+            if (stage == 1)
+            {                
+
                 if (angerMin1 > 0)
                 {
                     if (response.result[0].faceAttributes.emotion.anger < angerMin1)
@@ -100,7 +233,7 @@ public class LevelController : MonoBehaviour
                 }
                 if (contemptMin1 > 0)
                 {
-                    if (response.result[0].faceAttributes.emotion.anger < contemptMin1)
+                    if (response.result[0].faceAttributes.emotion.contempt < contemptMin1)
                     {
                         success = false;
                     }
@@ -172,7 +305,7 @@ public class LevelController : MonoBehaviour
                 }
                 if (contemptMin2 > 0)
                 {
-                    if (response.result[0].faceAttributes.emotion.anger < contemptMin2)
+                    if (response.result[0].faceAttributes.emotion.contempt < contemptMin2)
                     {
                         success = false;
                     }
@@ -244,7 +377,7 @@ public class LevelController : MonoBehaviour
                 }
                 if (contemptMin3 > 0)
                 {
-                    if (response.result[0].faceAttributes.emotion.anger < contemptMin3)
+                    if (response.result[0].faceAttributes.emotion.contempt < contemptMin3)
                     {
                         success = false;
                     }
@@ -332,6 +465,8 @@ public class LevelController : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(1.6f);
+        feedImage.sprite = feedTrans;
+        feedText.text = "";
         if (score > 0)
         {
             star1Ending.GetComponent<Image>().sprite = starFull;
