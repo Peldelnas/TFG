@@ -5250,6 +5250,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 941659642990691555, guid: 3ddf485a8b32afb4e8588e6938aa93bd, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941659642990691555, guid: 3ddf485a8b32afb4e8588e6938aa93bd, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.4716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 941659642990691555, guid: 3ddf485a8b32afb4e8588e6938aa93bd, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.4716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 941659642990691555, guid: 3ddf485a8b32afb4e8588e6938aa93bd, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.4716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 941659642990691555, guid: 3ddf485a8b32afb4e8588e6938aa93bd, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 941659642990691555, guid: 3ddf485a8b32afb4e8588e6938aa93bd, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.8503309
+      objectReference: {fileID: 0}
+    - target: {fileID: 941659642990691555, guid: 3ddf485a8b32afb4e8588e6938aa93bd, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 941659642990691557, guid: 3ddf485a8b32afb4e8588e6938aa93bd, type: 3}
       propertyPath: m_Name
       value: levelButton (1)

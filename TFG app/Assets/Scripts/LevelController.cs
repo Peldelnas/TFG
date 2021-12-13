@@ -63,8 +63,10 @@ public class LevelController : MonoBehaviour
     Image spriteDef;
 
     public Sprite feedTrans;
+    public Image feedFX;
     public Image feedImage;
     public Text feedText;
+    public Sprite feedFXSprite;
     public Sprite angerS;
     public Sprite contemptS;
     public Sprite disgustS;
@@ -73,6 +75,10 @@ public class LevelController : MonoBehaviour
     public Sprite neutralS;
     public Sprite sadnessS;
     public Sprite surpriseS;
+
+    public Animator feedAnimator;
+
+    private bool success = true;
 
 
     // Start is called before the first frame update
@@ -92,6 +98,7 @@ public class LevelController : MonoBehaviour
 
         feedImage.sprite = feedTrans;
         feedText.text = "";
+        feedFX.sprite = feedTrans;
 
     }
 
@@ -99,7 +106,7 @@ public class LevelController : MonoBehaviour
 
     public void CompareResults(AzureFacesResponse response)
     {
-        bool success = true;
+        success = true;
         //hardcoded
 
         try
@@ -280,18 +287,7 @@ public class LevelController : MonoBehaviour
                         success = false;
                     }
                 }
-                if (success)
-                {
-                    score++;
-                    star1.GetComponent<Image>().sprite = starFull;
-                    successAudio.Play();
-                }
-                else
-                {
-                    wrongAudio.Play();
-                    star1.GetComponent<Image>().sprite = negra;
-                }
-                spriteDef.sprite = image2;
+                StartCoroutine("WaitFeed",stage);
             }
 
             if (stage == 2)
@@ -352,18 +348,7 @@ public class LevelController : MonoBehaviour
                         success = false;
                     }
                 }
-                if (success)
-                {
-                    score++;
-                    star2.GetComponent<Image>().sprite = starFull;
-                    successAudio.Play();
-                }
-                else
-                {
-                    wrongAudio.Play();
-                    star2.GetComponent<Image>().sprite = negra;
-                }
-                spriteDef.sprite = image3;
+                StartCoroutine("WaitFeed", stage);
             }
 
             if (stage == 3)
@@ -424,19 +409,8 @@ public class LevelController : MonoBehaviour
                         success = false;
                     }
                 }
-                if (success)
-                {
-                    score++;
-                    star3.GetComponent<Image>().sprite = starFull;
-                    successAudio.Play();
-                    StartCoroutine(Wait());
-                }
-                else
-                {
-                    star3.GetComponent<Image>().sprite = negra;
-                    wrongAudio.Play();
-                    StartCoroutine(Wait());
-                }
+                StartCoroutine("WaitFeed", stage);
+                
             }
             stage++;
         }
@@ -464,7 +438,7 @@ public class LevelController : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(0.5f);
         feedImage.sprite = feedTrans;
         feedText.text = "";
         if (score > 0)
@@ -500,6 +474,81 @@ public class LevelController : MonoBehaviour
         GameController.Instance.GuardarProgreso();
     }
 
+    IEnumerator WaitFeed(int stageN)
+    {
+        
+        if (stageN == 1)
+        {
+            feedFX.sprite = feedFXSprite;
+            feedAnimator.Play("feedback_iddle", -1);
+            yield return new WaitForSeconds(0.5f);
+            feedAnimator.Play("feedback_quieto", -1);
+            yield return new WaitForSeconds(1.0f);
+            if (success)
+            {
+                score++;
+                star1.GetComponent<Image>().sprite = starFull;
+                successAudio.Play();
+            }
+            else
+            {
+                wrongAudio.Play();
+                star1.GetComponent<Image>().sprite = negra;
+            }
+            spriteDef.sprite = image2;
+            feedImage.sprite = feedTrans;
+            feedText.text = "";
+            feedFX.sprite = feedTrans;
+        }
+        if (stageN == 2)
+        {
+            feedFX.sprite = feedFXSprite;
+            feedAnimator.Play("feedback_iddle", -1);
+            yield return new WaitForSeconds(0.5f);
+            feedAnimator.Play("feedback_quieto", -1);
+            yield return new WaitForSeconds(1.0f);
+            if (success)
+            {
+                score++;
+                star2.GetComponent<Image>().sprite = starFull;
+                successAudio.Play();
+            }
+            else
+            {
+                wrongAudio.Play();
+                star2.GetComponent<Image>().sprite = negra;
+            }
+            spriteDef.sprite = image3;
+            feedImage.sprite = feedTrans;
+            feedText.text = "";
+            feedFX.sprite = feedTrans;
+        }
+        if (stageN == 3)
+        {
+            feedFX.sprite = feedFXSprite;
+            feedAnimator.Play("feedback_iddle", -1);
+            yield return new WaitForSeconds(0.5f);
+            feedAnimator.Play("feedback_quieto", -1);
+            yield return new WaitForSeconds(1.0f);
+            if (success)
+            {
+                score++;
+                star3.GetComponent<Image>().sprite = starFull;
+                successAudio.Play();
+                StartCoroutine(Wait());
+            }
+            else
+            {
+                star3.GetComponent<Image>().sprite = negra;
+                wrongAudio.Play();
+                StartCoroutine(Wait());
+            }
+            spriteDef.sprite = image2;
+            feedImage.sprite = feedTrans;
+            feedText.text = "";
+            feedFX.sprite = feedTrans;
+        }
+    }
     public void FinalizarNivel()
     {        
         if (score > 0)
