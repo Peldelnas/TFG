@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
+    public GameObject PhotoButton;
     public Sprite image1;
     public Sprite image2;
     public Sprite image3;
@@ -108,6 +109,7 @@ public class LevelController : MonoBehaviour
     {
         success = true;
         //hardcoded
+        PhotoButton.SetActive(false);
 
         try
         {
@@ -548,6 +550,7 @@ public class LevelController : MonoBehaviour
             feedText.text = "";
             feedFX.sprite = feedTrans;
         }
+        PhotoButton.SetActive(true);
     }
     public void FinalizarNivel()
     {        

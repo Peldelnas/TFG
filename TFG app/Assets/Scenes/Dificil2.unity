@@ -2872,6 +2872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29044308499124418da9792158ef393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PhotoButton: {fileID: 264927210}
   image1: {fileID: 21300000, guid: 162c4977834574044848e58cc3eb4cc1, type: 3}
   image2: {fileID: 21300000, guid: d295d8160b15bb441a4c8b60aeb564bc, type: 3}
   image3: {fileID: 21300000, guid: bc6aef4d614088b45bb73cc6ca72340c, type: 3}

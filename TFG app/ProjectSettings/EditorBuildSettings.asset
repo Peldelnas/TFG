@@ -12,6 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Facil1.unity
     guid: 7e45ce6f3228b55418b8cec9e6ed6ead
   - enabled: 1
+    path: Assets/Scenes/Facil2.unity
+    guid: 784ec78af7d93cd48874fc5cdb75a539
+  - enabled: 1
+    path: Assets/Scenes/Facil3.unity
+    guid: 32bfc968a3a6130459e9f171eef42122
+  - enabled: 1
+    path: Assets/Scenes/Medio1.unity
+    guid: 64aaf91c8dd34e145ab19644ffb9756b
+  - enabled: 1
+    path: Assets/Scenes/Medio2.unity
+    guid: e4ea3f8eb9eff8a44aa05876c7ce3b06
+  - enabled: 1
+    path: Assets/Scenes/Medio3.unity
+    guid: 51835c2f08de8974cab503e96878c789
+  - enabled: 1
+    path: Assets/Scenes/Dificil1.unity
+    guid: 6ba46058dd4c4754892da4d51c564074
+  - enabled: 1
     path: Assets/Scenes/Dificil2.unity
     guid: 998de010d963b474b9048953525df226
   - enabled: 1
