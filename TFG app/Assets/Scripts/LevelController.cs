@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
+    public GameObject PhotoButton;
     public Sprite image1;
     public Sprite image2;
     public Sprite image3;
@@ -62,6 +63,24 @@ public class LevelController : MonoBehaviour
     int score = 0;
     Image spriteDef;
 
+    public Sprite feedTrans;
+    public Image feedFX;
+    public Image feedImage;
+    public Text feedText;
+    public Sprite feedFXSprite;
+    public Sprite angerS;
+    public Sprite contemptS;
+    public Sprite disgustS;
+    public Sprite fearS;
+    public Sprite happinessS;
+    public Sprite neutralS;
+    public Sprite sadnessS;
+    public Sprite surpriseS;
+
+    public Animator feedAnimator;
+
+    private bool success = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -78,19 +97,142 @@ public class LevelController : MonoBehaviour
         spriteDef = imageDef.GetComponent<Image>();
         spriteDef.sprite = image1;
 
+        feedImage.sprite = feedTrans;
+        feedText.text = "";
+        feedFX.sprite = feedTrans;
+
     }
 
     
 
     public void CompareResults(AzureFacesResponse response)
     {
-        bool success = true;
+        success = true;
         //hardcoded
+        PhotoButton.SetActive(false);
 
         try
         {
-            if (stage == 1)
+
+            int indexFeed = 0;
+            double maxFeed = 0;
+
+            for (int it = 0; it < 2; it++)
             {
+                if (response.result[0].faceAttributes.emotion.anger >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.anger;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = angerS;
+                        feedText.text = "Enfado";
+                    }
+
+
+                }
+                if (response.result[0].faceAttributes.emotion.contempt >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.contempt;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = contemptS;
+                        feedText.text = "Desprecio";
+                    }
+
+                }
+
+                if (response.result[0].faceAttributes.emotion.disgust >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.disgust;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = disgustS;
+                        feedText.text = "Disgusto";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.fear >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.fear;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = fearS;
+                        feedText.text = "Miedo";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.happiness >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.happiness;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = happinessS;
+                        feedText.text = "Felicidad";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.neutral >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.neutral;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = neutralS;
+                        feedText.text = "Neutro";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.sadness >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.sadness;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = sadnessS;
+                        feedText.text = "Tristeza";
+                    }
+
+                }
+                if (response.result[0].faceAttributes.emotion.surprise >= maxFeed)
+                {
+                    if (it == 0)
+                    {
+                        maxFeed = response.result[0].faceAttributes.emotion.surprise;
+                    }
+                    if (it == 1)
+                    {
+                        feedImage.sprite = surpriseS;
+                        feedText.text = "Sorpresa";
+                    }
+
+                }
+
+
+            }
+
+
+            if (stage == 1)
+            {                
+
                 if (angerMin1 > 0)
                 {
                     if (response.result[0].faceAttributes.emotion.anger < angerMin1)
@@ -100,7 +242,7 @@ public class LevelController : MonoBehaviour
                 }
                 if (contemptMin1 > 0)
                 {
-                    if (response.result[0].faceAttributes.emotion.anger < contemptMin1)
+                    if (response.result[0].faceAttributes.emotion.contempt < contemptMin1)
                     {
                         success = false;
                     }
@@ -147,18 +289,7 @@ public class LevelController : MonoBehaviour
                         success = false;
                     }
                 }
-                if (success)
-                {
-                    score++;
-                    star1.GetComponent<Image>().sprite = starFull;
-                    successAudio.Play();
-                }
-                else
-                {
-                    wrongAudio.Play();
-                    star1.GetComponent<Image>().sprite = negra;
-                }
-                spriteDef.sprite = image2;
+                StartCoroutine("WaitFeed",stage);
             }
 
             if (stage == 2)
@@ -172,7 +303,7 @@ public class LevelController : MonoBehaviour
                 }
                 if (contemptMin2 > 0)
                 {
-                    if (response.result[0].faceAttributes.emotion.anger < contemptMin2)
+                    if (response.result[0].faceAttributes.emotion.contempt < contemptMin2)
                     {
                         success = false;
                     }
@@ -219,18 +350,7 @@ public class LevelController : MonoBehaviour
                         success = false;
                     }
                 }
-                if (success)
-                {
-                    score++;
-                    star2.GetComponent<Image>().sprite = starFull;
-                    successAudio.Play();
-                }
-                else
-                {
-                    wrongAudio.Play();
-                    star2.GetComponent<Image>().sprite = negra;
-                }
-                spriteDef.sprite = image3;
+                StartCoroutine("WaitFeed", stage);
             }
 
             if (stage == 3)
@@ -244,7 +364,7 @@ public class LevelController : MonoBehaviour
                 }
                 if (contemptMin3 > 0)
                 {
-                    if (response.result[0].faceAttributes.emotion.anger < contemptMin3)
+                    if (response.result[0].faceAttributes.emotion.contempt < contemptMin3)
                     {
                         success = false;
                     }
@@ -291,19 +411,8 @@ public class LevelController : MonoBehaviour
                         success = false;
                     }
                 }
-                if (success)
-                {
-                    score++;
-                    star3.GetComponent<Image>().sprite = starFull;
-                    successAudio.Play();
-                    StartCoroutine(Wait());
-                }
-                else
-                {
-                    star3.GetComponent<Image>().sprite = negra;
-                    wrongAudio.Play();
-                    StartCoroutine(Wait());
-                }
+                StartCoroutine("WaitFeed", stage);
+                
             }
             stage++;
         }
@@ -331,7 +440,9 @@ public class LevelController : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(0.5f);
+        feedImage.sprite = feedTrans;
+        feedText.text = "";
         if (score > 0)
         {
             star1Ending.GetComponent<Image>().sprite = starFull;
@@ -365,6 +476,82 @@ public class LevelController : MonoBehaviour
         GameController.Instance.GuardarProgreso();
     }
 
+    IEnumerator WaitFeed(int stageN)
+    {
+        
+        if (stageN == 1)
+        {
+            feedFX.sprite = feedFXSprite;
+            feedAnimator.Play("feedback_iddle", -1);
+            yield return new WaitForSeconds(0.5f);
+            feedAnimator.Play("feedback_quieto", -1);
+            yield return new WaitForSeconds(1.0f);
+            if (success)
+            {
+                score++;
+                star1.GetComponent<Image>().sprite = starFull;
+                successAudio.Play();
+            }
+            else
+            {
+                wrongAudio.Play();
+                star1.GetComponent<Image>().sprite = negra;
+            }
+            spriteDef.sprite = image2;
+            feedImage.sprite = feedTrans;
+            feedText.text = "";
+            feedFX.sprite = feedTrans;
+        }
+        if (stageN == 2)
+        {
+            feedFX.sprite = feedFXSprite;
+            feedAnimator.Play("feedback_iddle", -1);
+            yield return new WaitForSeconds(0.5f);
+            feedAnimator.Play("feedback_quieto", -1);
+            yield return new WaitForSeconds(1.0f);
+            if (success)
+            {
+                score++;
+                star2.GetComponent<Image>().sprite = starFull;
+                successAudio.Play();
+            }
+            else
+            {
+                wrongAudio.Play();
+                star2.GetComponent<Image>().sprite = negra;
+            }
+            spriteDef.sprite = image3;
+            feedImage.sprite = feedTrans;
+            feedText.text = "";
+            feedFX.sprite = feedTrans;
+        }
+        if (stageN == 3)
+        {
+            feedFX.sprite = feedFXSprite;
+            feedAnimator.Play("feedback_iddle", -1);
+            yield return new WaitForSeconds(0.5f);
+            feedAnimator.Play("feedback_quieto", -1);
+            yield return new WaitForSeconds(1.0f);
+            if (success)
+            {
+                score++;
+                star3.GetComponent<Image>().sprite = starFull;
+                successAudio.Play();
+                StartCoroutine(Wait());
+            }
+            else
+            {
+                star3.GetComponent<Image>().sprite = negra;
+                wrongAudio.Play();
+                StartCoroutine(Wait());
+            }
+            spriteDef.sprite = image2;
+            feedImage.sprite = feedTrans;
+            feedText.text = "";
+            feedFX.sprite = feedTrans;
+        }
+        PhotoButton.SetActive(true);
+    }
     public void FinalizarNivel()
     {        
         if (score > 0)

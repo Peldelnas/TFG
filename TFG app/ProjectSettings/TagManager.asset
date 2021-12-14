@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Fondo
+    uniqueID: 1321534367
+    locked: 0
+  - name: Sobrefondo
+    uniqueID: 1049966405
+    locked: 0
